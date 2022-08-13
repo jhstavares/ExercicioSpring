@@ -35,7 +35,7 @@ public class AgendaDeTelefoneController {
     public AgendaDeTelefonesModel alterarNumero(@RequestBody AgendaDeTelefonesModel agendaDeTelefonesModel) {
         return agendaDeTelefonesService.alterar(agendaDeTelefonesModel);
     }
-    @DeleteMapping(path = "/telefones/{codigos}")
+    @DeleteMapping(path = "/telefones/{codigo}")
     public void deletarTelefones(@PathVariable Long codigo){
         agendaDeTelefonesService.deletar(codigo);
 

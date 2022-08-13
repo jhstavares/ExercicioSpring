@@ -13,7 +13,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Numerostelefones")
+@Table(name = "contatos_telefones")
 public class AgendaDeTelefonesModel {
 
     @Id
@@ -24,7 +24,6 @@ public class AgendaDeTelefonesModel {
     private String nome;
 
     @Column(length = 11, nullable = false)
-    private int numero;
-
+    private String numero;
 
 }

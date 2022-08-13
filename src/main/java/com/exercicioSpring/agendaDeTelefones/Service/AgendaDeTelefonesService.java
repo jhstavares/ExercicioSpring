@@ -4,7 +4,7 @@ import com.exercicioSpring.agendaDeTelefones.Model.AgendaDeTelefonesModel;
 import com.exercicioSpring.agendaDeTelefones.Repository.AgendaDeTelefonesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
+//import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,7 +19,7 @@ public class AgendaDeTelefonesService {
 
         return agendaDeTelefonesRepository.findAll();
     }
-    public Optional<AgendaDeTelefonesModel> buscarPorId(@PathVariable Long codigo) {
+    public Optional<AgendaDeTelefonesModel> buscarPorId(Long codigo) {
         return agendaDeTelefonesRepository.findById(codigo);
     }
     public AgendaDeTelefonesModel cadastrar(AgendaDeTelefonesModel agendaDeTelefonesModel) {
