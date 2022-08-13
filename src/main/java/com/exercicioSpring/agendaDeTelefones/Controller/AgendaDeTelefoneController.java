@@ -8,24 +8,38 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-public class AgendaDeTelefoneController{
-
+public class AgendaDeTelefoneController {
     @Autowired
     private AgendaDeTelefonesService agendaDeTelefonesService;
 
-
-    @GetMapping(path ="/telefones")
-    public List<AgendaDeTelefonesModel>buscarTodosOsNumerosDeTelefonesDaAgenda(){
-        return agendaDeTelefonesService.buscartodos();
+    @GetMapping(path = "/telefones")
+    public List<AgendaDeTelefonesModel> buscarTodosOsNumerosDeTelefonesDaAgenda() {
+        return agendaDeTelefonesService.buscarTodos();
     }
-    @PostMapping(path ="/telefones")
+
+    @GetMapping(path = "/telefones/{codigo}")
+    public Optional<AgendaDeTelefonesModel> buscarPorId(@PathVariable Long codigo) {
+        return agendaDeTelefonesService.buscarPorId(codigo);
+    }
+
+    @PostMapping(path = "/telefones")
     @ResponseStatus(HttpStatus.CREATED)
-    public AgendaDeTelefonesModel cadastrarTelefones(@RequestBody AgendaDeTelefonesModel agendaDeTelefonesModel){
+    public AgendaDeTelefonesModel cadastrarTelefones(@RequestBody AgendaDeTelefonesModel agendaDeTelefonesModel) {
         return agendaDeTelefonesService.cadastrar(agendaDeTelefonesModel);
 
     }
+    @PutMapping(path = "/telefones/{codigo}")
+    public AgendaDeTelefonesModel alterarNumero(@RequestBody AgendaDeTelefonesModel agendaDeTelefonesModel) {
+        return agendaDeTelefonesService.alterar(agendaDeTelefonesModel);
+    }
+    @DeleteMapping(path = "/telefones/{codigos}")
+    public void deletarTelefones(@PathVariable Long codigo){
+        agendaDeTelefonesService.deletar(codigo);
 
+
+    }
 
 }

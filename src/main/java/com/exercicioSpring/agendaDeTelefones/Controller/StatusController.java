@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class StatusController {
 
     @GetMapping(path = "/status")
-    public String checar() {
-        return "Funcionando";
+    public String checar() {return "Funcionando";
 
     }
 
